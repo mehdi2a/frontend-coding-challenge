@@ -8,12 +8,13 @@ import { Repository } from 'src/app/shared/models/repository';
 })
 export class RepositoryComponent implements OnInit {
   @Input()  repository: Repository;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  calculateDayLeft() {
+  calculateDayLeft(): number {
     return Math.floor((new Date().valueOf() - this.repository.created_at.valueOf()) / (1000 * 3600 * 24));
   }
 }

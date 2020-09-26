@@ -17,10 +17,10 @@ interface Response {
 export class RepositoriesService {
   constructor(private http: HttpClient) { }
 
-  getRecentRepositories(page: number, created_at: string): Observable<Repository[]> {
-    return this.http.get(environment.API_URL + '?q=created:' + created_at + '&sort=stars&order=desc&page=' + page)
+  getRecentRepositories(page: number, date: string): Observable<Repository[]> {
+    return this.http.get(environment.api_url + '?q=created:' + date + '&sort=stars&order=desc&page=' + page)
       .pipe(
-        map((res: Response) => 
+        map((res: Response) =>
         res.items.map(
           ({
             name,
@@ -45,10 +45,10 @@ export class RepositoriesService {
           })
         )
         )
-      )
+      );
   }
 
-  handleError(error) {
+  handleError(error): Observable<never> {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // client-side error
