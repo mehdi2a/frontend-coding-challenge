@@ -1,13 +1,13 @@
 
     <td class="image">    
-        <img  [src]="repository.owner.avatar_url" /> 
+        <img loading="lazy" [src]="repository.owner.avatar_url" /> 
     </td>
     <td class="information">
         <h2>{{repository.name}}</h2>
         <p>{{repository.description}}</p>
         <p>
-            <button disabled><img  src="./../../../../../assets/icons/star.png"/> {{repository.stargazers_count}} </button>
-            <button disabled><img  src="./../../../../../assets/icons/issues.png"/> {{repository.open_issues}} </button>
+            <button disabled><img loading="lazy" src="./../../../../../assets/icons/star.png"/> {{repository.stargazers_count}} </button>
+            <button disabled><img loading="lazy" src="./../../../../../assets/icons/issues.png"/> {{repository.open_issues}} </button>
             Submitted {{ this.calculateDayLeft() }} days ago by {{repository.name}}
         </p>
     </td>
