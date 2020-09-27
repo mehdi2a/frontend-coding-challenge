@@ -36,7 +36,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getRecentRepositories(): void {
-    this.subscriptions.push(this.repositoriesService.getRecentRepositories(this.page, this.month).subscribe(res => {
+    this.subscriptions.push(this.repositoriesService.getRecentRepositories(this.page, this.month)
+    .subscribe(
+    res => {
       this.loading = false;
       this.repositories.push(...res);
     }));
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   scrollEvent = (event: any): void => {
     if (((window.innerHeight + window.scrollY) >= document.body.offsetHeight) && this.firedOnce === false){
+        this.loading = true;
         this.page++;
         this.getRecentRepositories();
         this.firedOnce = true;
