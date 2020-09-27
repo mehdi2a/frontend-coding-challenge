@@ -12,7 +12,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   private month: string = this.getLastDate(30);
   private page = 1;
   public repositories: Repository[] = [];
-  public firedOnce = false;
+  private firedOnce = false;
+  public loading = true;
   private subscriptions: Subscription[] = [];
 
   constructor(private repositoriesService: RepositoriesService) {
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getRecentRepositories(): void {
     this.subscriptions.push(this.repositoriesService.getRecentRepositories(this.page, this.month).subscribe(res => {
+      this.loading = false;
       this.repositories.push(...res);
     }));
   }
@@ -47,6 +49,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.firedOnce = true;
      }else if ((window.innerHeight + window.scrollY) < document.body.offsetHeight && this.firedOnce === true ) {
       this.firedOnce = false;
+      this.loading = true;
      }
   }
 }
