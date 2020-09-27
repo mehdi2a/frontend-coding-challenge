@@ -121,6 +121,10 @@
               "devServerTarget": "frontend-coding-challenge:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

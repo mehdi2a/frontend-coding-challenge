@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "frontend-coding-chalenge": {
+      "hosting": {
+        "frontend-coding-challenge": [
+          "frontend-coding-chalenge"
+        ]
+      }
+    }
+  }
+}
