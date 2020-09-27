@@ -19,4 +19,4 @@
 
 ## Try the App
 
-    https://frontend-coding-chalenge.web.app/
+  https://frontend-coding-chalenge.web.app/
